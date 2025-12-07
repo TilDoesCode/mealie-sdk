@@ -124,7 +124,7 @@ jobs:
           git add -A
           git commit -m "chore: regenerate SDK ${{ steps.version.outputs.version }}" -m "Updated from ${{ env.OPENAPI_URL }}"
           git tag ${{ steps.version.outputs.version }}
-          git push origin master --tags
+          git push origin main --tags
 
       - name: Create GitHub Release
         if: steps.should_generate.outputs.generate == 'true'
