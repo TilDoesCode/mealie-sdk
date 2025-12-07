@@ -152,3 +152,5 @@ jobs:
         if: steps.should_generate.outputs.generate == 'true'
         working-directory: mealie-typescript
         run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
