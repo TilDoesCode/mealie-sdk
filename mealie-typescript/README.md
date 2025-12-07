@@ -2,6 +2,10 @@
 
 TypeScript/JavaScript client for the [Mealie](https://mealie.io) API.
 
+WARNING: This auto regenerates everday at midnight. It is recommended that you pin your app to a specific version of this package to keep it from breaking when a change to the mealie api is introduced.
+
+The current api specification is taken from: https://demo.mealie.io/openapi.json
+
 ## Installation
 
 ```bash
