@@ -1,0 +1,34 @@
+# CreateIngredientFood
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional] [default to undefined]
+**name** | **string** |  | [default to undefined]
+**pluralName** | **string** |  | [optional] [default to undefined]
+**description** | **string** |  | [optional] [default to '']
+**extras** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
+**labelId** | **string** |  | [optional] [default to undefined]
+**aliases** | [**Array&lt;CreateIngredientFoodAlias&gt;**](CreateIngredientFoodAlias.md) |  | [optional] [default to undefined]
+**householdsWithIngredientFood** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { CreateIngredientFood } from 'mealie-typescript';
+
+const instance: CreateIngredientFood = {
+    id,
+    name,
+    pluralName,
+    description,
+    extras,
+    labelId,
+    aliases,
+    householdsWithIngredientFood,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

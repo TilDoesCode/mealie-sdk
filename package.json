@@ -1,0 +1,17 @@
+{
+  "name": "mealie-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-typescript": "openapi-generator-cli generate -i openapi.json -g typescript-axios -o mealie-typescript --global-property=apiTests=false,modelTests=false --additional-properties=npmName=mealie-typescript,withInterfaces=true && npm --prefix mealie-typescript run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.25.2"
+  }
+}

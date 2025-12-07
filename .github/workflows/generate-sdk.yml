@@ -1,0 +1,150 @@
+name: Generate SDK
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      force_regenerate:
+        description: 'Force regeneration even if API spec unchanged'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  OPENAPI_URL: 'https://demo.mealie.io/openapi.json'
+
+jobs:
+  check-and-generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup Java (required for OpenAPI Generator)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download latest OpenAPI spec
+        run: |
+          curl -sSL "${{ env.OPENAPI_URL }}" -o openapi-new.json
+
+      - name: Compare API specs
+        id: compare
+        run: |
+          if [ ! -f openapi.json ]; then
+            echo "No existing openapi.json found, will generate"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Remove dynamic fields that change between fetches (like timestamps, versions)
+          # and compare the structural content
+          jq -S 'del(.info.version)' openapi.json > openapi-current-normalized.json 2>/dev/null || cp openapi.json openapi-current-normalized.json
+          jq -S 'del(.info.version)' openapi-new.json > openapi-new-normalized.json 2>/dev/null || cp openapi-new.json openapi-new-normalized.json
+
+          if diff -q openapi-current-normalized.json openapi-new-normalized.json > /dev/null 2>&1; then
+            echo "API spec unchanged"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "API spec has changed"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Determine if generation needed
+        id: should_generate
+        run: |
+          if [ "${{ github.event.inputs.force_regenerate }}" == "true" ] || [ "${{ steps.compare.outputs.changed }}" == "true" ]; then
+            echo "generate=true" >> $GITHUB_OUTPUT
+          else
+            echo "generate=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update OpenAPI spec
+        if: steps.should_generate.outputs.generate == 'true'
+        run: mv openapi-new.json openapi.json
+
+      - name: Generate TypeScript SDK
+        if: steps.should_generate.outputs.generate == 'true'
+        run: |
+          npm run generate-typescript
+
+      - name: Get next version
+        if: steps.should_generate.outputs.generate == 'true'
+        id: version
+        run: |
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag: $LATEST_TAG"
+
+          # Extract version numbers
+          VERSION=${LATEST_TAG#v}
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+
+          # Increment patch version
+          NEW_PATCH=$((PATCH + 1))
+          NEW_VERSION="v${MAJOR}.${MINOR}.${NEW_PATCH}"
+
+          echo "New version: $NEW_VERSION"
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "version_number=${MAJOR}.${MINOR}.${NEW_PATCH}" >> $GITHUB_OUTPUT
+
+      - name: Update package.json version
+        if: steps.should_generate.outputs.generate == 'true'
+        run: |
+          cd mealie-typescript
+          npm version ${{ steps.version.outputs.version_number }} --no-git-tag-version
+
+      - name: Commit and push changes
+        if: steps.should_generate.outputs.generate == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "chore: regenerate SDK ${{ steps.version.outputs.version }}
+
+          Updated from ${{ env.OPENAPI_URL }}
+
+          git tag ${{ steps.version.outputs.version }}
+          git push origin main --tags
+
+      - name: Create GitHub Release
+        if: steps.should_generate.outputs.generate == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: Release ${{ steps.version.outputs.version }}
+          body: |
+            ## SDK Release ${{ steps.version.outputs.version }}
+
+            Automatically generated from the latest Mealie OpenAPI specification.
+
+            **Source:** ${{ env.OPENAPI_URL }}
+
+            ### Installation
+
+            ```bash
+            npm install mealie-typescript@${{ steps.version.outputs.version_number }}
+            ```
+          generate_release_notes: true
