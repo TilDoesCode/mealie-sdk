@@ -23,4 +23,5 @@
 #!docs/README.md
 tsconfig.json
 README.md
+package.json
 git_push.sh
