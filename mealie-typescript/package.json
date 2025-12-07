@@ -1,11 +1,11 @@
 {
   "name": "mealie-typescript",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "OpenAPI client for mealie-typescript",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TilDoesCode/mealie-sdk"
+    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
   },
   "keywords": [
     "axios",
