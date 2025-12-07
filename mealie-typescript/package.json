@@ -1,33 +1,22 @@
 {
   "name": "mealie-typescript",
-  "version": "1.0.1",
-  "description": "TypeScript/JavaScript client for the Mealie API",
-  "author": "mealie-sdk contributors",
-  "license": "MIT",
-  "homepage": "https://github.com/tildoescode/mealie-sdk",
+  "version": "0.0.1",
+  "description": "OpenAPI client for mealie-typescript",
+  "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tildoescode/mealie-sdk.git",
-    "directory": "mealie-typescript"
-  },
-  "bugs": {
-    "url": "https://github.com/tildoescode/mealie-sdk/issues"
+    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
   },
   "keywords": [
-    "mealie",
-    "api",
-    "client",
-    "sdk",
-    "recipe",
-    "meal-planning",
+    "axios",
     "typescript",
-    "axios"
+    "openapi-client",
+    "openapi-generator",
+    "mealie-typescript"
   ],
+  "license": "Unlicense",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
@@ -36,10 +25,7 @@
     "axios": "^1.6.1"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.0.0"
-  },
-  "engines": {
-    "node": ">=16"
+    "@types/node": "12.11.5 - 12.20.42",
+    "typescript": "^4.0 || ^5.0"
   }
 }
