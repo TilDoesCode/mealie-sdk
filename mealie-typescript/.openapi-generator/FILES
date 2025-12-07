@@ -299,6 +299,5 @@ docs/ValidationErrorLocInner.md
 docs/Value.md
 docs/WebhookPagination.md
 docs/WebhookType.md
-git_push.sh
 index.ts
 package.json
