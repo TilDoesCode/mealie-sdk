@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -33,6 +34,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Setup Java (required for OpenAPI Generator)
         uses: actions/setup-java@v4
@@ -145,3 +147,8 @@ jobs:
             npm install mealie-typescript@${{ steps.version.outputs.version_number }}
             ```
           generate_release_notes: true
+
+      - name: Publish to npm
+        if: steps.should_generate.outputs.generate == 'true'
+        working-directory: mealie-typescript
+        run: npm publish --provenance --access public
