@@ -1499,6 +1499,7 @@ export interface ScrapeRecipe {
 export interface ScrapeRecipeData {
     'includeTags'?: boolean;
     'data': string;
+    'url'?: string | null;
 }
 export interface ScrapeRecipeTest {
     'url': string;
