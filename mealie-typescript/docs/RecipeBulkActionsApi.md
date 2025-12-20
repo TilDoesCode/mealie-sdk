@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 |[**bulkSettingsRecipesApiRecipesBulkActionsSettingsPost**](#bulksettingsrecipesapirecipesbulkactionssettingspost) | **POST** /api/recipes/bulk-actions/settings | Bulk Settings Recipes|
 |[**bulkTagRecipesApiRecipesBulkActionsTagPost**](#bulktagrecipesapirecipesbulkactionstagpost) | **POST** /api/recipes/bulk-actions/tag | Bulk Tag Recipes|
 |[**getExportedDataApiRecipesBulkActionsExportGet**](#getexporteddataapirecipesbulkactionsexportget) | **GET** /api/recipes/bulk-actions/export | Get Exported Data|
-|[**getExportedDataTokenApiRecipesBulkActionsExportDownloadGet**](#getexporteddatatokenapirecipesbulkactionsexportdownloadget) | **GET** /api/recipes/bulk-actions/export/download | Get Exported Data Token|
+|[**getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet**](#getexporteddatatokenapirecipesbulkactionsexportexportiddownloadget) | **GET** /api/recipes/bulk-actions/export/{export_id}/download | Get Exported Data Token|
 |[**purgeExportDataApiRecipesBulkActionsExportPurgeDelete**](#purgeexportdataapirecipesbulkactionsexportpurgedelete) | **DELETE** /api/recipes/bulk-actions/export/purge | Purge Export Data|
 
 # **bulkCategorizeRecipesApiRecipesBulkActionsCategorizePost**
@@ -339,8 +339,8 @@ const { status, data } = await apiInstance.getExportedDataApiRecipesBulkActionsE
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getExportedDataTokenApiRecipesBulkActionsExportDownloadGet**
-> any getExportedDataTokenApiRecipesBulkActionsExportDownloadGet()
+# **getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet**
+> any getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet()
 
 Returns a token to download a file
 
@@ -355,11 +355,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RecipeBulkActionsApi(configuration);
 
-let path: string; // (default to undefined)
+let exportId: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
-const { status, data } = await apiInstance.getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(
-    path,
+const { status, data } = await apiInstance.getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(
+    exportId,
     acceptLanguage
 );
 ```
@@ -368,7 +368,7 @@ const { status, data } = await apiInstance.getExportedDataTokenApiRecipesBulkAct
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **path** | [**string**] |  | defaults to undefined|
+| **exportId** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
 

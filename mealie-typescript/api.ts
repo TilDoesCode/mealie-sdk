@@ -19321,15 +19321,16 @@ export const RecipeBulkActionsApiAxiosParamCreator = function (configuration?: C
         /**
          * Returns a token to download a file
          * @summary Get Exported Data Token
-         * @param {string} path 
+         * @param {string} exportId 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getExportedDataTokenApiRecipesBulkActionsExportDownloadGet: async (path: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'path' is not null or undefined
-            assertParamExists('getExportedDataTokenApiRecipesBulkActionsExportDownloadGet', 'path', path)
-            const localVarPath = `/api/recipes/bulk-actions/export/download`;
+        getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet: async (exportId: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exportId' is not null or undefined
+            assertParamExists('getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet', 'exportId', exportId)
+            const localVarPath = `/api/recipes/bulk-actions/export/{export_id}/download`
+                .replace(`{${"export_id"}}`, encodeURIComponent(String(exportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -19344,10 +19345,6 @@ export const RecipeBulkActionsApiAxiosParamCreator = function (configuration?: C
             // authentication OAuth2PasswordBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2PasswordBearer", [], configuration)
-
-            if (path !== undefined) {
-                localVarQueryParameter['path'] = path;
-            }
 
 
     
@@ -19496,15 +19493,15 @@ export const RecipeBulkActionsApiFp = function(configuration?: Configuration) {
         /**
          * Returns a token to download a file
          * @summary Get Exported Data Token
-         * @param {string} path 
+         * @param {string} exportId 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path, acceptLanguage, options);
+        async getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RecipeBulkActionsApi.getExportedDataTokenApiRecipesBulkActionsExportDownloadGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RecipeBulkActionsApi.getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -19597,13 +19594,13 @@ export const RecipeBulkActionsApiFactory = function (configuration?: Configurati
         /**
          * Returns a token to download a file
          * @summary Get Exported Data Token
-         * @param {string} path 
+         * @param {string} exportId 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path, acceptLanguage, options).then((request) => request(axios, basePath));
+        getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove all exports data, including items on disk without database entry
@@ -19684,12 +19681,12 @@ export interface RecipeBulkActionsApiInterface {
     /**
      * Returns a token to download a file
      * @summary Get Exported Data Token
-     * @param {string} path 
+     * @param {string} exportId 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Remove all exports data, including items on disk without database entry
@@ -19780,13 +19777,13 @@ export class RecipeBulkActionsApi extends BaseAPI implements RecipeBulkActionsAp
     /**
      * Returns a token to download a file
      * @summary Get Exported Data Token
-     * @param {string} path 
+     * @param {string} exportId 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
-        return RecipeBulkActionsApiFp(this.configuration).getExportedDataTokenApiRecipesBulkActionsExportDownloadGet(path, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+        return RecipeBulkActionsApiFp(this.configuration).getExportedDataTokenApiRecipesBulkActionsExportExportIdDownloadGet(exportId, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
