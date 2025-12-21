@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **eventType** | [**TimelineEventType**](TimelineEventType.md) |  | [default to undefined]
 **eventMessage** | **string** |  | [optional] [default to undefined]
 **image** | [**TimelineEventImage**](TimelineEventImage.md) |  | [optional] [default to undefined]
-**timestamp** | **string** |  | [optional] [default to 2025-12-19T04:03:07.719806Z]
+**timestamp** | **string** |  | [optional] [default to 2025-12-20T04:02:17.058793Z]
 
 ## Example
 
