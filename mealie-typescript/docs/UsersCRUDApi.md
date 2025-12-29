@@ -275,7 +275,7 @@ const { status, data } = await apiInstance.updatePasswordApiUsersPasswordPut(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserApiUsersItemIdPut**
-> any updateUserApiUsersItemIdPut(mealieSchemaUserUserUserBase)
+> any updateUserApiUsersItemIdPut(userBase)
 
 
 ### Example
@@ -284,19 +284,19 @@ const { status, data } = await apiInstance.updatePasswordApiUsersPasswordPut(
 import {
     UsersCRUDApi,
     Configuration,
-    MealieSchemaUserUserUserBase
+    UserBase
 } from 'mealie-typescript';
 
 const configuration = new Configuration();
 const apiInstance = new UsersCRUDApi(configuration);
 
 let itemId: string; // (default to undefined)
-let mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase; //
+let userBase: UserBase; //
 let acceptLanguage: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.updateUserApiUsersItemIdPut(
     itemId,
-    mealieSchemaUserUserUserBase,
+    userBase,
     acceptLanguage
 );
 ```
@@ -305,7 +305,7 @@ const { status, data } = await apiInstance.updateUserApiUsersItemIdPut(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **mealieSchemaUserUserUserBase** | **MealieSchemaUserUserUserBase**|  | |
+| **userBase** | **UserBase**|  | |
 | **itemId** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 

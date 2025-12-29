@@ -136,7 +136,6 @@ docs/LongLiveTokenOut.md
 docs/MaintenanceStorageDetails.md
 docs/MaintenanceSummary.md
 docs/MealieSchemaRecipeRecipeCommentsUserBase.md
-docs/MealieSchemaUserUserUserBase.md
 docs/MergeFood.md
 docs/MergeUnit.md
 docs/MultiPurposeLabelCreate.md
@@ -276,6 +275,8 @@ docs/UpdateHouseholdAdmin.md
 docs/UpdateHouseholdPreferences.md
 docs/UpdateImageResponse.md
 docs/UpdatePlanEntry.md
+docs/UserBase.md
+docs/UserBaseOutput.md
 docs/UserIn.md
 docs/UserOut.md
 docs/UserPagination.md

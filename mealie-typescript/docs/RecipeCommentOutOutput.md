@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [default to undefined]
 **updatedAt** | **string** |  | [default to undefined]
 **userId** | **string** |  | [default to undefined]
-**user** | [**MealieSchemaRecipeRecipeCommentsUserBase**](MealieSchemaRecipeRecipeCommentsUserBase.md) |  | [default to undefined]
+**user** | [**UserBaseOutput**](UserBaseOutput.md) |  | [default to undefined]
 
 ## Example
 
