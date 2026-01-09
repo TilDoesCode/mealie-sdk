@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **eventType** | [**TimelineEventType**](TimelineEventType.md) |  | [default to undefined]
 **eventMessage** | **string** |  | [optional] [default to undefined]
 **image** | [**TimelineEventImage**](TimelineEventImage.md) |  | [optional] [default to undefined]
-**timestamp** | **string** |  | [optional] [default to 2026-01-07T04:02:45.165435Z]
+**timestamp** | **string** |  | [optional] [default to 2026-01-08T04:02:14.798872Z]
 **id** | **string** |  | [default to undefined]
 **groupId** | **string** |  | [default to undefined]
 **householdId** | **string** |  | [default to undefined]
