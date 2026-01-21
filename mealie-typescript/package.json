@@ -1,6 +1,6 @@
 {
   "name": "mealie-typescript",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "TypeScript/JavaScript client for the Mealie API",
   "author": "mealie-sdk contributors",
   "license": "MIT",
