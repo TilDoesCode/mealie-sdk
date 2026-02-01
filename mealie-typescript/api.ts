@@ -1477,10 +1477,12 @@ export interface SaveGroupRecipeAction {
 
 export interface ScrapeRecipe {
     'includeTags'?: boolean;
+    'includeCategories'?: boolean;
     'url': string;
 }
 export interface ScrapeRecipeData {
     'includeTags'?: boolean;
+    'includeCategories'?: boolean;
     'data': string;
     'url'?: string | null;
 }

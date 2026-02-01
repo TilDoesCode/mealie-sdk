@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **includeTags** | **boolean** |  | [optional] [default to false]
+**includeCategories** | **boolean** |  | [optional] [default to false]
 **data** | **string** |  | [default to undefined]
 **url** | **string** |  | [optional] [default to undefined]
 
@@ -16,6 +17,7 @@ import { ScrapeRecipeData } from 'mealie-typescript';
 
 const instance: ScrapeRecipeData = {
     includeTags,
+    includeCategories,
     data,
     url,
 };
