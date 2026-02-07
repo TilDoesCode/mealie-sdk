@@ -725,23 +725,12 @@ export interface MaintenanceSummary {
     'cleanableImages': number;
     'cleanableDirs': number;
 }
-export interface MealieSchemaUserUserUserBase {
-    'id'?: string | null;
+export interface MealieSchemaRecipeRecipeCommentsUserBase {
+    'id': string;
     'username'?: string | null;
+    'admin': boolean;
     'fullName'?: string | null;
-    'email': string;
-    'authMethod'?: AuthMethod;
-    'admin'?: boolean;
-    'group'?: string | null;
-    'household'?: string | null;
-    'advanced'?: boolean;
-    'canInvite'?: boolean;
-    'canManage'?: boolean;
-    'canManageHousehold'?: boolean;
-    'canOrganize'?: boolean;
 }
-
-
 export interface MergeFood {
     'fromFood': string;
     'toFood': string;
@@ -1086,7 +1075,7 @@ export interface RecipeCommentOutInput {
     'createdAt': string;
     'update_at': string;
     'userId': string;
-    'user': UserBase;
+    'user': MealieSchemaRecipeRecipeCommentsUserBase;
 }
 export interface RecipeCommentOutOutput {
     'recipeId': string;
@@ -1869,11 +1858,22 @@ export interface UpdatePlanEntry {
 
 
 export interface UserBase {
-    'id': string;
+    'id'?: string | null;
     'username'?: string | null;
-    'admin': boolean;
     'fullName'?: string | null;
+    'email': string;
+    'authMethod'?: AuthMethod;
+    'admin'?: boolean;
+    'group'?: string | null;
+    'household'?: string | null;
+    'advanced'?: boolean;
+    'canInvite'?: boolean;
+    'canManage'?: boolean;
+    'canManageHousehold'?: boolean;
+    'canOrganize'?: boolean;
 }
+
+
 export interface UserBaseOutput {
     'id': string;
     'username'?: string | null;
@@ -27313,16 +27313,16 @@ export const UsersCRUDApiAxiosParamCreator = function (configuration?: Configura
          * 
          * @summary Update User
          * @param {string} itemId 
-         * @param {MealieSchemaUserUserUserBase} mealieSchemaUserUserUserBase 
+         * @param {UserBase} userBase 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserApiUsersItemIdPut: async (itemId: string, mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateUserApiUsersItemIdPut: async (itemId: string, userBase: UserBase, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'itemId' is not null or undefined
             assertParamExists('updateUserApiUsersItemIdPut', 'itemId', itemId)
-            // verify required parameter 'mealieSchemaUserUserUserBase' is not null or undefined
-            assertParamExists('updateUserApiUsersItemIdPut', 'mealieSchemaUserUserUserBase', mealieSchemaUserUserUserBase)
+            // verify required parameter 'userBase' is not null or undefined
+            assertParamExists('updateUserApiUsersItemIdPut', 'userBase', userBase)
             const localVarPath = `/api/users/{item_id}`
                 .replace(`{${"item_id"}}`, encodeURIComponent(String(itemId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -27350,7 +27350,7 @@ export const UsersCRUDApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mealieSchemaUserUserUserBase, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(userBase, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -27437,13 +27437,13 @@ export const UsersCRUDApiFp = function(configuration?: Configuration) {
          * 
          * @summary Update User
          * @param {string} itemId 
-         * @param {MealieSchemaUserUserUserBase} mealieSchemaUserUserUserBase 
+         * @param {UserBase} userBase 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserApiUsersItemIdPut(itemId: string, mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserApiUsersItemIdPut(itemId, mealieSchemaUserUserUserBase, acceptLanguage, options);
+        async updateUserApiUsersItemIdPut(itemId: string, userBase: UserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserApiUsersItemIdPut(itemId, userBase, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersCRUDApi.updateUserApiUsersItemIdPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -27513,13 +27513,13 @@ export const UsersCRUDApiFactory = function (configuration?: Configuration, base
          * 
          * @summary Update User
          * @param {string} itemId 
-         * @param {MealieSchemaUserUserUserBase} mealieSchemaUserUserUserBase 
+         * @param {UserBase} userBase 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserApiUsersItemIdPut(itemId: string, mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.updateUserApiUsersItemIdPut(itemId, mealieSchemaUserUserUserBase, acceptLanguage, options).then((request) => request(axios, basePath));
+        updateUserApiUsersItemIdPut(itemId: string, userBase: UserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.updateUserApiUsersItemIdPut(itemId, userBase, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -27579,12 +27579,12 @@ export interface UsersCRUDApiInterface {
      * 
      * @summary Update User
      * @param {string} itemId 
-     * @param {MealieSchemaUserUserUserBase} mealieSchemaUserUserUserBase 
+     * @param {UserBase} userBase 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserApiUsersItemIdPut(itemId: string, mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    updateUserApiUsersItemIdPut(itemId: string, userBase: UserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
 
 }
 
@@ -27653,13 +27653,13 @@ export class UsersCRUDApi extends BaseAPI implements UsersCRUDApiInterface {
      * 
      * @summary Update User
      * @param {string} itemId 
-     * @param {MealieSchemaUserUserUserBase} mealieSchemaUserUserUserBase 
+     * @param {UserBase} userBase 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateUserApiUsersItemIdPut(itemId: string, mealieSchemaUserUserUserBase: MealieSchemaUserUserUserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
-        return UsersCRUDApiFp(this.configuration).updateUserApiUsersItemIdPut(itemId, mealieSchemaUserUserUserBase, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public updateUserApiUsersItemIdPut(itemId: string, userBase: UserBase, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+        return UsersCRUDApiFp(this.configuration).updateUserApiUsersItemIdPut(itemId, userBase, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
