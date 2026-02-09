@@ -725,6 +725,12 @@ export interface MaintenanceSummary {
     'cleanableImages': number;
     'cleanableDirs': number;
 }
+export interface MealieSchemaRecipeRecipeCommentsUserBase {
+    'id': string;
+    'username'?: string | null;
+    'admin': boolean;
+    'fullName'?: string | null;
+}
 export interface MealieSchemaUserUserUserBase {
     'id'?: string | null;
     'username'?: string | null;
@@ -1086,7 +1092,7 @@ export interface RecipeCommentOutInput {
     'createdAt': string;
     'update_at': string;
     'userId': string;
-    'user': UserBase;
+    'user': MealieSchemaRecipeRecipeCommentsUserBase;
 }
 export interface RecipeCommentOutOutput {
     'recipeId': string;
@@ -1868,12 +1874,6 @@ export interface UpdatePlanEntry {
 }
 
 
-export interface UserBase {
-    'id': string;
-    'username'?: string | null;
-    'admin': boolean;
-    'fullName'?: string | null;
-}
 export interface UserBaseOutput {
     'id': string;
     'username'?: string | null;
