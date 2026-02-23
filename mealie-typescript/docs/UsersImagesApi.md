@@ -23,7 +23,7 @@ const configuration = new Configuration();
 const apiInstance = new UsersImagesApi(configuration);
 
 let id: string; // (default to undefined)
-let profile: File; // (default to undefined)
+let profile: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.updateUserImageApiUsersIdImagePost(
@@ -38,7 +38,7 @@ const { status, data } = await apiInstance.updateUserImageApiUsersIdImagePost(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**string**] |  | defaults to undefined|
-| **profile** | [**File**] |  | defaults to undefined|
+| **profile** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
 

@@ -154,7 +154,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RecipeCRUDApi(configuration);
 
-let images: Array<File>; // (default to undefined)
+let images: Array<string>; // (default to undefined)
 let translateLanguage: string; // (optional) (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
@@ -169,7 +169,7 @@ const { status, data } = await apiInstance.createRecipeFromImageApiRecipesCreate
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **images** | **Array&lt;File&gt;** |  | defaults to undefined|
+| **images** | **Array&lt;string&gt;** |  | defaults to undefined|
 | **translateLanguage** | [**string**] |  | (optional) defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
@@ -212,7 +212,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RecipeCRUDApi(configuration);
 
-let archive: File; // (default to undefined)
+let archive: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.createRecipeFromZipApiRecipesCreateZipPost(
@@ -225,7 +225,7 @@ const { status, data } = await apiInstance.createRecipeFromZipApiRecipesCreateZi
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **archive** | [**File**] |  | defaults to undefined|
+| **archive** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
 
@@ -1193,7 +1193,7 @@ const configuration = new Configuration();
 const apiInstance = new RecipeCRUDApi(configuration);
 
 let slug: string; // (default to undefined)
-let image: File; // (default to undefined)
+let image: string; // (default to undefined)
 let extension: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
@@ -1210,7 +1210,7 @@ const { status, data } = await apiInstance.updateRecipeImageApiRecipesSlugImageP
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **slug** | [**string**] |  | defaults to undefined|
-| **image** | [**File**] |  | defaults to undefined|
+| **image** | [**string**] |  | defaults to undefined|
 | **extension** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
@@ -1257,7 +1257,7 @@ let slug: string; // (default to undefined)
 let name: string; // (default to undefined)
 let icon: string; // (default to undefined)
 let extension: string; // (default to undefined)
-let file: File; // (default to undefined)
+let file: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.uploadRecipeAssetApiRecipesSlugAssetsPost(
@@ -1278,7 +1278,7 @@ const { status, data } = await apiInstance.uploadRecipeAssetApiRecipesSlugAssets
 | **name** | [**string**] |  | defaults to undefined|
 | **icon** | [**string**] |  | defaults to undefined|
 | **extension** | [**string**] |  | defaults to undefined|
-| **file** | [**File**] |  | defaults to undefined|
+| **file** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
 

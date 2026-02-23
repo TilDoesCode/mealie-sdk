@@ -262,7 +262,7 @@ const configuration = new Configuration();
 const apiInstance = new RecipeTimelineApi(configuration);
 
 let itemId: string; // (default to undefined)
-let image: File; // (default to undefined)
+let image: string; // (default to undefined)
 let extension: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
@@ -279,7 +279,7 @@ const { status, data } = await apiInstance.updateEventImageApiRecipesTimelineEve
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **itemId** | [**string**] |  | defaults to undefined|
-| **image** | [**File**] |  | defaults to undefined|
+| **image** | [**string**] |  | defaults to undefined|
 | **extension** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 

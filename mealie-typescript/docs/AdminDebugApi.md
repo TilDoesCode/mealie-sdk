@@ -22,7 +22,7 @@ const configuration = new Configuration();
 const apiInstance = new AdminDebugApi(configuration);
 
 let acceptLanguage: string; // (optional) (default to undefined)
-let image: File; // (optional) (default to undefined)
+let image: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.debugOpenaiApiAdminDebugOpenaiPost(
     acceptLanguage,
@@ -35,7 +35,7 @@ const { status, data } = await apiInstance.debugOpenaiApiAdminDebugOpenaiPost(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
-| **image** | [**File**] |  | (optional) defaults to undefined|
+| **image** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

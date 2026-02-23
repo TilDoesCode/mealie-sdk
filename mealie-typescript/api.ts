@@ -2482,12 +2482,12 @@ export const AdminBackupsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Upload a .zip File to later be imported into Mealie
          * @summary Upload One
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadOneApiAdminBackupsUploadPost: async (archive: File, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        uploadOneApiAdminBackupsUploadPost: async (archive: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'archive' is not null or undefined
             assertParamExists('uploadOneApiAdminBackupsUploadPost', 'archive', archive)
             const localVarPath = `/api/admin/backups/upload`;
@@ -2608,12 +2608,12 @@ export const AdminBackupsApiFp = function(configuration?: Configuration) {
         /**
          * Upload a .zip File to later be imported into Mealie
          * @summary Upload One
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadOneApiAdminBackupsUploadPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuccessResponse>> {
+        async uploadOneApiAdminBackupsUploadPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuccessResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadOneApiAdminBackupsUploadPost(archive, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AdminBackupsApi.uploadOneApiAdminBackupsUploadPost']?.[localVarOperationServerIndex]?.url;
@@ -2684,12 +2684,12 @@ export const AdminBackupsApiFactory = function (configuration?: Configuration, b
         /**
          * Upload a .zip File to later be imported into Mealie
          * @summary Upload One
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadOneApiAdminBackupsUploadPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<SuccessResponse> {
+        uploadOneApiAdminBackupsUploadPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<SuccessResponse> {
             return localVarFp.uploadOneApiAdminBackupsUploadPost(archive, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
@@ -2750,12 +2750,12 @@ export interface AdminBackupsApiInterface {
     /**
      * Upload a .zip File to later be imported into Mealie
      * @summary Upload One
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadOneApiAdminBackupsUploadPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<SuccessResponse>;
+    uploadOneApiAdminBackupsUploadPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<SuccessResponse>;
 
 }
 
@@ -2824,12 +2824,12 @@ export class AdminBackupsApi extends BaseAPI implements AdminBackupsApiInterface
     /**
      * Upload a .zip File to later be imported into Mealie
      * @summary Upload One
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public uploadOneApiAdminBackupsUploadPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public uploadOneApiAdminBackupsUploadPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return AdminBackupsApiFp(this.configuration).uploadOneApiAdminBackupsUploadPost(archive, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -2845,11 +2845,11 @@ export const AdminDebugApiAxiosParamCreator = function (configuration?: Configur
          * 
          * @summary Debug Openai
          * @param {string | null} [acceptLanguage] 
-         * @param {File | null} [image] 
+         * @param {string | null} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        debugOpenaiApiAdminDebugOpenaiPost: async (acceptLanguage?: string | null, image?: File | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        debugOpenaiApiAdminDebugOpenaiPost: async (acceptLanguage?: string | null, image?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/admin/debug/openai`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2901,11 +2901,11 @@ export const AdminDebugApiFp = function(configuration?: Configuration) {
          * 
          * @summary Debug Openai
          * @param {string | null} [acceptLanguage] 
-         * @param {File | null} [image] 
+         * @param {string | null} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: File | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DebugResponse>> {
+        async debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DebugResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage, image, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AdminDebugApi.debugOpenaiApiAdminDebugOpenaiPost']?.[localVarOperationServerIndex]?.url;
@@ -2924,11 +2924,11 @@ export const AdminDebugApiFactory = function (configuration?: Configuration, bas
          * 
          * @summary Debug Openai
          * @param {string | null} [acceptLanguage] 
-         * @param {File | null} [image] 
+         * @param {string | null} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: File | null, options?: RawAxiosRequestConfig): AxiosPromise<DebugResponse> {
+        debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<DebugResponse> {
             return localVarFp.debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage, image, options).then((request) => request(axios, basePath));
         },
     };
@@ -2942,11 +2942,11 @@ export interface AdminDebugApiInterface {
      * 
      * @summary Debug Openai
      * @param {string | null} [acceptLanguage] 
-     * @param {File | null} [image] 
+     * @param {string | null} [image] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: File | null, options?: RawAxiosRequestConfig): AxiosPromise<DebugResponse>;
+    debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<DebugResponse>;
 
 }
 
@@ -2958,11 +2958,11 @@ export class AdminDebugApi extends BaseAPI implements AdminDebugApiInterface {
      * 
      * @summary Debug Openai
      * @param {string | null} [acceptLanguage] 
-     * @param {File | null} [image] 
+     * @param {string | null} [image] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: File | null, options?: RawAxiosRequestConfig) {
+    public debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage?: string | null, image?: string | null, options?: RawAxiosRequestConfig) {
         return AdminDebugApiFp(this.configuration).debugOpenaiApiAdminDebugOpenaiPost(acceptLanguage, image, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -8284,13 +8284,13 @@ export const GroupsMigrationsApiAxiosParamCreator = function (configuration?: Co
          * 
          * @summary Start Data Migration
          * @param {SupportedMigrations} migrationType 
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {boolean} [addMigrationTag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startDataMigrationApiGroupsMigrationsPost: async (migrationType: SupportedMigrations, archive: File, acceptLanguage?: string | null, addMigrationTag?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startDataMigrationApiGroupsMigrationsPost: async (migrationType: SupportedMigrations, archive: string, acceptLanguage?: string | null, addMigrationTag?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'migrationType' is not null or undefined
             assertParamExists('startDataMigrationApiGroupsMigrationsPost', 'migrationType', migrationType)
             // verify required parameter 'archive' is not null or undefined
@@ -8354,13 +8354,13 @@ export const GroupsMigrationsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Start Data Migration
          * @param {SupportedMigrations} migrationType 
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {boolean} [addMigrationTag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: File, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportSummary>> {
+        async startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: string, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startDataMigrationApiGroupsMigrationsPost(migrationType, archive, acceptLanguage, addMigrationTag, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['GroupsMigrationsApi.startDataMigrationApiGroupsMigrationsPost']?.[localVarOperationServerIndex]?.url;
@@ -8379,13 +8379,13 @@ export const GroupsMigrationsApiFactory = function (configuration?: Configuratio
          * 
          * @summary Start Data Migration
          * @param {SupportedMigrations} migrationType 
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {boolean} [addMigrationTag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: File, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<ReportSummary> {
+        startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: string, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<ReportSummary> {
             return localVarFp.startDataMigrationApiGroupsMigrationsPost(migrationType, archive, acceptLanguage, addMigrationTag, options).then((request) => request(axios, basePath));
         },
     };
@@ -8399,13 +8399,13 @@ export interface GroupsMigrationsApiInterface {
      * 
      * @summary Start Data Migration
      * @param {SupportedMigrations} migrationType 
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {boolean} [addMigrationTag] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: File, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<ReportSummary>;
+    startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: string, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<ReportSummary>;
 
 }
 
@@ -8417,13 +8417,13 @@ export class GroupsMigrationsApi extends BaseAPI implements GroupsMigrationsApiI
      * 
      * @summary Start Data Migration
      * @param {SupportedMigrations} migrationType 
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {boolean} [addMigrationTag] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: File, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig) {
+    public startDataMigrationApiGroupsMigrationsPost(migrationType: SupportedMigrations, archive: string, acceptLanguage?: string | null, addMigrationTag?: boolean, options?: RawAxiosRequestConfig) {
         return GroupsMigrationsApiFp(this.configuration).startDataMigrationApiGroupsMigrationsPost(migrationType, archive, acceptLanguage, addMigrationTag, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -19906,13 +19906,13 @@ export const RecipeCRUDApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Create a recipe from an image using OpenAI. Optionally specify a language for it to translate the recipe to.
          * @summary Create Recipe From Image
-         * @param {Array<File>} images 
+         * @param {Array<string>} images 
          * @param {string | null} [translateLanguage] 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRecipeFromImageApiRecipesCreateImagePost: async (images: Array<File>, translateLanguage?: string | null, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createRecipeFromImageApiRecipesCreateImagePost: async (images: Array<string>, translateLanguage?: string | null, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'images' is not null or undefined
             assertParamExists('createRecipeFromImageApiRecipesCreateImagePost', 'images', images)
             const localVarPath = `/api/recipes/create/image`;
@@ -19937,9 +19937,7 @@ export const RecipeCRUDApiAxiosParamCreator = function (configuration?: Configur
             }
 
             if (images) {
-                images.forEach((element) => {
-                    localVarFormParams.append('images', element as any);
-                })
+                localVarFormParams.append('images', images.join(COLLECTION_FORMATS.csv));
             }
 
     
@@ -19962,12 +19960,12 @@ export const RecipeCRUDApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Create recipe from archive
          * @summary Create Recipe From Zip
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRecipeFromZipApiRecipesCreateZipPost: async (archive: File, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createRecipeFromZipApiRecipesCreateZipPost: async (archive: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'archive' is not null or undefined
             assertParamExists('createRecipeFromZipApiRecipesCreateZipPost', 'archive', archive)
             const localVarPath = `/api/recipes/create/zip`;
@@ -20826,13 +20824,13 @@ export const RecipeCRUDApiAxiosParamCreator = function (configuration?: Configur
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecipeImageApiRecipesSlugImagePut: async (slug: string, image: File, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateRecipeImageApiRecipesSlugImagePut: async (slug: string, image: string, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slug' is not null or undefined
             assertParamExists('updateRecipeImageApiRecipesSlugImagePut', 'slug', slug)
             // verify required parameter 'image' is not null or undefined
@@ -20889,12 +20887,12 @@ export const RecipeCRUDApiAxiosParamCreator = function (configuration?: Configur
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadRecipeAssetApiRecipesSlugAssetsPost: async (slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        uploadRecipeAssetApiRecipesSlugAssetsPost: async (slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slug' is not null or undefined
             assertParamExists('uploadRecipeAssetApiRecipesSlugAssetsPost', 'slug', slug)
             // verify required parameter 'name' is not null or undefined
@@ -20996,13 +20994,13 @@ export const RecipeCRUDApiFp = function(configuration?: Configuration) {
         /**
          * Create a recipe from an image using OpenAI. Optionally specify a language for it to translate the recipe to.
          * @summary Create Recipe From Image
-         * @param {Array<File>} images 
+         * @param {Array<string>} images 
          * @param {string | null} [translateLanguage] 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createRecipeFromImageApiRecipesCreateImagePost(images: Array<File>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async createRecipeFromImageApiRecipesCreateImagePost(images: Array<string>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRecipeFromImageApiRecipesCreateImagePost(images, translateLanguage, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeCRUDApi.createRecipeFromImageApiRecipesCreateImagePost']?.[localVarOperationServerIndex]?.url;
@@ -21011,12 +21009,12 @@ export const RecipeCRUDApiFp = function(configuration?: Configuration) {
         /**
          * Create recipe from archive
          * @summary Create Recipe From Zip
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createRecipeFromZipApiRecipesCreateZipPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async createRecipeFromZipApiRecipesCreateZipPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRecipeFromZipApiRecipesCreateZipPost(archive, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeCRUDApi.createRecipeFromZipApiRecipesCreateZipPost']?.[localVarOperationServerIndex]?.url;
@@ -21269,13 +21267,13 @@ export const RecipeCRUDApiFp = function(configuration?: Configuration) {
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
+        async updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeCRUDApi.updateRecipeImageApiRecipesSlugImagePut']?.[localVarOperationServerIndex]?.url;
@@ -21288,12 +21286,12 @@ export const RecipeCRUDApiFp = function(configuration?: Configuration) {
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecipeAsset>> {
+        async uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecipeAsset>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeCRUDApi.uploadRecipeAssetApiRecipesSlugAssetsPost']?.[localVarOperationServerIndex]?.url;
@@ -21333,24 +21331,24 @@ export const RecipeCRUDApiFactory = function (configuration?: Configuration, bas
         /**
          * Create a recipe from an image using OpenAI. Optionally specify a language for it to translate the recipe to.
          * @summary Create Recipe From Image
-         * @param {Array<File>} images 
+         * @param {Array<string>} images 
          * @param {string | null} [translateLanguage] 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRecipeFromImageApiRecipesCreateImagePost(images: Array<File>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        createRecipeFromImageApiRecipesCreateImagePost(images: Array<string>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
             return localVarFp.createRecipeFromImageApiRecipesCreateImagePost(images, translateLanguage, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Create recipe from archive
          * @summary Create Recipe From Zip
-         * @param {File} archive 
+         * @param {string} archive 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createRecipeFromZipApiRecipesCreateZipPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        createRecipeFromZipApiRecipesCreateZipPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
             return localVarFp.createRecipeFromZipApiRecipesCreateZipPost(archive, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21555,13 +21553,13 @@ export const RecipeCRUDApiFactory = function (configuration?: Configuration, bas
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
+        updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
             return localVarFp.updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21571,12 +21569,12 @@ export const RecipeCRUDApiFactory = function (configuration?: Configuration, bas
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset> {
+        uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset> {
             return localVarFp.uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
@@ -21609,23 +21607,23 @@ export interface RecipeCRUDApiInterface {
     /**
      * Create a recipe from an image using OpenAI. Optionally specify a language for it to translate the recipe to.
      * @summary Create Recipe From Image
-     * @param {Array<File>} images 
+     * @param {Array<string>} images 
      * @param {string | null} [translateLanguage] 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createRecipeFromImageApiRecipesCreateImagePost(images: Array<File>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    createRecipeFromImageApiRecipesCreateImagePost(images: Array<string>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Create recipe from archive
      * @summary Create Recipe From Zip
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createRecipeFromZipApiRecipesCreateZipPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    createRecipeFromZipApiRecipesCreateZipPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Deletes a recipe by slug
@@ -21814,13 +21812,13 @@ export interface RecipeCRUDApiInterface {
      * 
      * @summary Update Recipe Image
      * @param {string} slug 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
+    updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
 
     /**
      * Upload a file to store as a recipe asset
@@ -21829,12 +21827,12 @@ export interface RecipeCRUDApiInterface {
      * @param {string} name 
      * @param {string} icon 
      * @param {string} extension 
-     * @param {File} file 
+     * @param {string} file 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset>;
+    uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset>;
 
 }
 
@@ -21869,25 +21867,25 @@ export class RecipeCRUDApi extends BaseAPI implements RecipeCRUDApiInterface {
     /**
      * Create a recipe from an image using OpenAI. Optionally specify a language for it to translate the recipe to.
      * @summary Create Recipe From Image
-     * @param {Array<File>} images 
+     * @param {Array<string>} images 
      * @param {string | null} [translateLanguage] 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createRecipeFromImageApiRecipesCreateImagePost(images: Array<File>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public createRecipeFromImageApiRecipesCreateImagePost(images: Array<string>, translateLanguage?: string | null, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeCRUDApiFp(this.configuration).createRecipeFromImageApiRecipesCreateImagePost(images, translateLanguage, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Create recipe from archive
      * @summary Create Recipe From Zip
-     * @param {File} archive 
+     * @param {string} archive 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createRecipeFromZipApiRecipesCreateZipPost(archive: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public createRecipeFromZipApiRecipesCreateZipPost(archive: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeCRUDApiFp(this.configuration).createRecipeFromZipApiRecipesCreateZipPost(archive, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -22108,13 +22106,13 @@ export class RecipeCRUDApi extends BaseAPI implements RecipeCRUDApiInterface {
      * 
      * @summary Update Recipe Image
      * @param {string} slug 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeCRUDApiFp(this.configuration).updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -22125,12 +22123,12 @@ export class RecipeCRUDApi extends BaseAPI implements RecipeCRUDApiInterface {
      * @param {string} name 
      * @param {string} icon 
      * @param {string} extension 
-     * @param {File} file 
+     * @param {string} file 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeCRUDApiFp(this.configuration).uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -23282,13 +23280,13 @@ export const RecipeImagesAndAssetsApiAxiosParamCreator = function (configuration
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecipeImageApiRecipesSlugImagePut: async (slug: string, image: File, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateRecipeImageApiRecipesSlugImagePut: async (slug: string, image: string, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slug' is not null or undefined
             assertParamExists('updateRecipeImageApiRecipesSlugImagePut', 'slug', slug)
             // verify required parameter 'image' is not null or undefined
@@ -23345,12 +23343,12 @@ export const RecipeImagesAndAssetsApiAxiosParamCreator = function (configuration
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadRecipeAssetApiRecipesSlugAssetsPost: async (slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        uploadRecipeAssetApiRecipesSlugAssetsPost: async (slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'slug' is not null or undefined
             assertParamExists('uploadRecipeAssetApiRecipesSlugAssetsPost', 'slug', slug)
             // verify required parameter 'name' is not null or undefined
@@ -23523,13 +23521,13 @@ export const RecipeImagesAndAssetsApiFp = function(configuration?: Configuration
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
+        async updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeImagesAndAssetsApi.updateRecipeImageApiRecipesSlugImagePut']?.[localVarOperationServerIndex]?.url;
@@ -23542,12 +23540,12 @@ export const RecipeImagesAndAssetsApiFp = function(configuration?: Configuration
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecipeAsset>> {
+        async uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecipeAsset>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeImagesAndAssetsApi.uploadRecipeAssetApiRecipesSlugAssetsPost']?.[localVarOperationServerIndex]?.url;
@@ -23643,13 +23641,13 @@ export const RecipeImagesAndAssetsApiFactory = function (configuration?: Configu
          * 
          * @summary Update Recipe Image
          * @param {string} slug 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
+        updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
             return localVarFp.updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23659,12 +23657,12 @@ export const RecipeImagesAndAssetsApiFactory = function (configuration?: Configu
          * @param {string} name 
          * @param {string} icon 
          * @param {string} extension 
-         * @param {File} file 
+         * @param {string} file 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset> {
+        uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset> {
             return localVarFp.uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
@@ -23748,13 +23746,13 @@ export interface RecipeImagesAndAssetsApiInterface {
      * 
      * @summary Update Recipe Image
      * @param {string} slug 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
+    updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
 
     /**
      * Upload a file to store as a recipe asset
@@ -23763,12 +23761,12 @@ export interface RecipeImagesAndAssetsApiInterface {
      * @param {string} name 
      * @param {string} icon 
      * @param {string} extension 
-     * @param {File} file 
+     * @param {string} file 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset>;
+    uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<RecipeAsset>;
 
 }
 
@@ -23864,13 +23862,13 @@ export class RecipeImagesAndAssetsApi extends BaseAPI implements RecipeImagesAnd
      * 
      * @summary Update Recipe Image
      * @param {string} slug 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateRecipeImageApiRecipesSlugImagePut(slug: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public updateRecipeImageApiRecipesSlugImagePut(slug: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeImagesAndAssetsApiFp(this.configuration).updateRecipeImageApiRecipesSlugImagePut(slug, image, extension, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -23881,12 +23879,12 @@ export class RecipeImagesAndAssetsApi extends BaseAPI implements RecipeImagesAnd
      * @param {string} name 
      * @param {string} icon 
      * @param {string} extension 
-     * @param {File} file 
+     * @param {string} file 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public uploadRecipeAssetApiRecipesSlugAssetsPost(slug: string, name: string, icon: string, extension: string, file: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeImagesAndAssetsApiFp(this.configuration).uploadRecipeAssetApiRecipesSlugAssetsPost(slug, name, icon, extension, file, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -24517,13 +24515,13 @@ export const RecipeTimelineApiAxiosParamCreator = function (configuration?: Conf
          * 
          * @summary Update Event Image
          * @param {string} itemId 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEventImageApiRecipesTimelineEventsItemIdImagePut: async (itemId: string, image: File, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateEventImageApiRecipesTimelineEventsItemIdImagePut: async (itemId: string, image: string, extension: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'itemId' is not null or undefined
             assertParamExists('updateEventImageApiRecipesTimelineEventsItemIdImagePut', 'itemId', itemId)
             // verify required parameter 'image' is not null or undefined
@@ -24696,13 +24694,13 @@ export const RecipeTimelineApiFp = function(configuration?: Configuration) {
          * 
          * @summary Update Event Image
          * @param {string} itemId 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
+        async updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId, image, extension, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RecipeTimelineApi.updateEventImageApiRecipesTimelineEventsItemIdImagePut']?.[localVarOperationServerIndex]?.url;
@@ -24786,13 +24784,13 @@ export const RecipeTimelineApiFactory = function (configuration?: Configuration,
          * 
          * @summary Update Event Image
          * @param {string} itemId 
-         * @param {File} image 
+         * @param {string} image 
          * @param {string} extension 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
+        updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse> {
             return localVarFp.updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId, image, extension, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
@@ -24864,13 +24862,13 @@ export interface RecipeTimelineApiInterface {
      * 
      * @summary Update Event Image
      * @param {string} itemId 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
+    updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<UpdateImageResponse>;
 
     /**
      * 
@@ -24947,13 +24945,13 @@ export class RecipeTimelineApi extends BaseAPI implements RecipeTimelineApiInter
      * 
      * @summary Update Event Image
      * @param {string} itemId 
-     * @param {File} image 
+     * @param {string} image 
      * @param {string} extension 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: File, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId: string, image: string, extension: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return RecipeTimelineApiFp(this.configuration).updateEventImageApiRecipesTimelineEventsItemIdImagePut(itemId, image, extension, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -27674,12 +27672,12 @@ export const UsersImagesApiAxiosParamCreator = function (configuration?: Configu
          * Updates a User Image
          * @summary Update User Image
          * @param {string} id 
-         * @param {File} profile 
+         * @param {string} profile 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserImageApiUsersIdImagePost: async (id: string, profile: File, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateUserImageApiUsersIdImagePost: async (id: string, profile: string, acceptLanguage?: string | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateUserImageApiUsersIdImagePost', 'id', id)
             // verify required parameter 'profile' is not null or undefined
@@ -27736,12 +27734,12 @@ export const UsersImagesApiFp = function(configuration?: Configuration) {
          * Updates a User Image
          * @summary Update User Image
          * @param {string} id 
-         * @param {File} profile 
+         * @param {string} profile 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserImageApiUsersIdImagePost(id: string, profile: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async updateUserImageApiUsersIdImagePost(id: string, profile: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserImageApiUsersIdImagePost(id, profile, acceptLanguage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersImagesApi.updateUserImageApiUsersIdImagePost']?.[localVarOperationServerIndex]?.url;
@@ -27760,12 +27758,12 @@ export const UsersImagesApiFactory = function (configuration?: Configuration, ba
          * Updates a User Image
          * @summary Update User Image
          * @param {string} id 
-         * @param {File} profile 
+         * @param {string} profile 
          * @param {string | null} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserImageApiUsersIdImagePost(id: string, profile: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        updateUserImageApiUsersIdImagePost(id: string, profile: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any> {
             return localVarFp.updateUserImageApiUsersIdImagePost(id, profile, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
@@ -27779,12 +27777,12 @@ export interface UsersImagesApiInterface {
      * Updates a User Image
      * @summary Update User Image
      * @param {string} id 
-     * @param {File} profile 
+     * @param {string} profile 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserImageApiUsersIdImagePost(id: string, profile: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    updateUserImageApiUsersIdImagePost(id: string, profile: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<any>;
 
 }
 
@@ -27796,12 +27794,12 @@ export class UsersImagesApi extends BaseAPI implements UsersImagesApiInterface {
      * Updates a User Image
      * @summary Update User Image
      * @param {string} id 
-     * @param {File} profile 
+     * @param {string} profile 
      * @param {string | null} [acceptLanguage] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateUserImageApiUsersIdImagePost(id: string, profile: File, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
+    public updateUserImageApiUsersIdImagePost(id: string, profile: string, acceptLanguage?: string | null, options?: RawAxiosRequestConfig) {
         return UsersImagesApiFp(this.configuration).updateUserImageApiUsersIdImagePost(id, profile, acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }

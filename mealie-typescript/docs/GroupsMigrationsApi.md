@@ -22,7 +22,7 @@ const configuration = new Configuration();
 const apiInstance = new GroupsMigrationsApi(configuration);
 
 let migrationType: SupportedMigrations; // (default to undefined)
-let archive: File; // (default to undefined)
+let archive: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 let addMigrationTag: boolean; // (optional) (default to false)
 
@@ -39,7 +39,7 @@ const { status, data } = await apiInstance.startDataMigrationApiGroupsMigrations
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **migrationType** | **SupportedMigrations** |  | defaults to undefined|
-| **archive** | [**File**] |  | defaults to undefined|
+| **archive** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 | **addMigrationTag** | [**boolean**] |  | (optional) defaults to false|
 

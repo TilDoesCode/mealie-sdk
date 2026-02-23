@@ -292,7 +292,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AdminBackupsApi(configuration);
 
-let archive: File; // (default to undefined)
+let archive: string; // (default to undefined)
 let acceptLanguage: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.uploadOneApiAdminBackupsUploadPost(
@@ -305,7 +305,7 @@ const { status, data } = await apiInstance.uploadOneApiAdminBackupsUploadPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **archive** | [**File**] |  | defaults to undefined|
+| **archive** | [**string**] |  | defaults to undefined|
 | **acceptLanguage** | [**string**] |  | (optional) defaults to undefined|
 
 
