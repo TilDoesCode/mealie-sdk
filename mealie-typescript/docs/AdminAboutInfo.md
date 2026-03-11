@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **oidcProviderName** | **string** |  | [default to undefined]
 **enableOpenai** | **boolean** |  | [default to undefined]
 **enableOpenaiImageServices** | **boolean** |  | [default to undefined]
+**enableOpenaiTranscriptionServices** | **boolean** |  | [default to undefined]
 **tokenTime** | **number** |  | [default to undefined]
 **versionLatest** | **string** |  | [default to undefined]
 **apiPort** | **number** |  | [default to undefined]
@@ -46,6 +47,7 @@ const instance: AdminAboutInfo = {
     oidcProviderName,
     enableOpenai,
     enableOpenaiImageServices,
+    enableOpenaiTranscriptionServices,
     tokenTime,
     versionLatest,
     apiPort,

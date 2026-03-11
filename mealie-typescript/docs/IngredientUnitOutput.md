@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **pluralAbbreviation** | **string** |  | [optional] [default to undefined]
 **useAbbreviation** | **boolean** |  | [optional] [default to false]
 **aliases** | [**Array&lt;IngredientUnitAlias&gt;**](IngredientUnitAlias.md) |  | [optional] [default to undefined]
+**standardQuantity** | **number** |  | [optional] [default to undefined]
+**standardUnit** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [default to undefined]
 **updatedAt** | **string** |  | [optional] [default to undefined]
 
@@ -34,6 +36,8 @@ const instance: IngredientUnitOutput = {
     pluralAbbreviation,
     useAbbreviation,
     aliases,
+    standardQuantity,
+    standardUnit,
     createdAt,
     updatedAt,
 };

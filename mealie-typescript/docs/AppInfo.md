@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **oidcProviderName** | **string** |  | [default to undefined]
 **enableOpenai** | **boolean** |  | [default to undefined]
 **enableOpenaiImageServices** | **boolean** |  | [default to undefined]
+**enableOpenaiTranscriptionServices** | **boolean** |  | [default to undefined]
 **tokenTime** | **number** |  | [default to undefined]
 
 ## Example
@@ -37,6 +38,7 @@ const instance: AppInfo = {
     oidcProviderName,
     enableOpenai,
     enableOpenaiImageServices,
+    enableOpenaiTranscriptionServices,
     tokenTime,
 };
 ```

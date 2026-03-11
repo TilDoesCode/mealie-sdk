@@ -36,6 +36,7 @@ export interface AdminAboutInfo {
     'oidcProviderName': string;
     'enableOpenai': boolean;
     'enableOpenaiImageServices': boolean;
+    'enableOpenaiTranscriptionServices': boolean;
     'tokenTime': number;
     'versionLatest': string;
     'apiPort': number;
@@ -64,6 +65,7 @@ export interface AppInfo {
     'oidcProviderName': string;
     'enableOpenai': boolean;
     'enableOpenaiImageServices': boolean;
+    'enableOpenaiTranscriptionServices': boolean;
     'tokenTime': number;
 }
 export interface AppStartupInfo {
@@ -212,6 +214,8 @@ export interface CreateIngredientUnit {
     'pluralAbbreviation'?: string | null;
     'useAbbreviation'?: boolean;
     'aliases'?: Array<CreateIngredientUnitAlias>;
+    'standardQuantity'?: number | null;
+    'standardUnit'?: string | null;
 }
 export interface CreateIngredientUnitAlias {
     'name': string;
@@ -650,6 +654,8 @@ export interface IngredientUnitInput {
     'pluralAbbreviation'?: string | null;
     'useAbbreviation'?: boolean;
     'aliases'?: Array<IngredientUnitAlias>;
+    'standardQuantity'?: number | null;
+    'standardUnit'?: string | null;
     'createdAt'?: string | null;
     'update_at'?: string | null;
 }
@@ -664,6 +670,8 @@ export interface IngredientUnitOutput {
     'pluralAbbreviation'?: string | null;
     'useAbbreviation'?: boolean;
     'aliases'?: Array<IngredientUnitAlias>;
+    'standardQuantity'?: number | null;
+    'standardUnit'?: string | null;
     'createdAt'?: string | null;
     'updatedAt'?: string | null;
 }
@@ -1809,6 +1817,8 @@ export interface Unit {
     'pluralAbbreviation'?: string;
     'useAbbreviation'?: boolean;
     'aliases'?: Array<CreateIngredientUnitAlias>;
+    'standardQuantity'?: number;
+    'standardUnit'?: string;
     'createdAt'?: string;
     'update_at'?: string;
 }
@@ -1823,6 +1833,8 @@ export interface Unit1 {
     'pluralAbbreviation'?: string;
     'useAbbreviation'?: boolean;
     'aliases'?: Array<CreateIngredientUnitAlias>;
+    'standardQuantity'?: number;
+    'standardUnit'?: string;
     'createdAt'?: string;
     'updatedAt'?: string;
 }
